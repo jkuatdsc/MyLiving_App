@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.MyLiving" parent="android:Theme.Material.Light.NoActionBar">
-        <item name="android:statusBarColor">@color/purple_700</item>
+    <style name="Theme.MyLiving" parent="android:Theme.Material.NoActionBar">
     </style>
 
     <style name="Theme.MyLiving.Splash" parent="Theme.SplashScreen">
-
+        <item name="windowSplashScreenBackground">@color/white</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_splash_light</item>
     </style>
 </resources>
