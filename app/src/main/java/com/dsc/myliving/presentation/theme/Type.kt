@@ -2,27 +2,32 @@ package com.dsc.myliving.presentation.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
+import com.dsc.myliving.R
 
-// Set of Material typography styles to start with
-val Typography = Typography(
+private val Poppins = FontFamily(
+    Font(R.font.bold, FontWeight.Bold),
+    Font(R.font.light, FontWeight.Light),
+    Font(R.font.regular, FontWeight.Normal),
+)
+
+val typography = Typography(
     body1 = TextStyle(
-        fontFamily = FontFamily.Default,
+        fontSize = 16.sp,
+        fontFamily = Poppins,
         fontWeight = FontWeight.Normal,
-        fontSize = 16.sp
-    )
-    /* Other default text styles to override
+    ),
     button = TextStyle(
-        fontFamily = FontFamily.Default,
+        fontSize = 14.sp,
+        fontFamily = Poppins,
         fontWeight = FontWeight.W500,
-        fontSize = 14.sp
     ),
     caption = TextStyle(
-        fontFamily = FontFamily.Default,
+        fontSize = 12.sp,
+        fontFamily = Poppins,
         fontWeight = FontWeight.Normal,
-        fontSize = 12.sp
     )
-    */
 )
