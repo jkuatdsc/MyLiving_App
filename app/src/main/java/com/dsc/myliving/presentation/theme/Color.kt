@@ -1,4 +1,4 @@
-package com.dsc.myliving.ui.theme
+package com.dsc.myliving.presentation.theme
 
 import androidx.compose.ui.graphics.Color
 
