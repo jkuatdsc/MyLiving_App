@@ -11,7 +11,7 @@
         android:theme="@style/Theme.MyLiving">
 
         <activity
-            android:name=".presentation.splash.EntryActivity"
+            android:name=".presentation.entry.EntryActivity"
             android:exported="true"
             android:theme="@style/Theme.MyLiving.Splash">
             <intent-filter>
