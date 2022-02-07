@@ -5,7 +5,7 @@ buildscript {
         hilt_version = '2.40'
         work_version = '2.7.1'
         lottie_version = '4.2.0'
-        kotlin_version = '1.6.0'
+        kotlin_version = '1.5.31'
         compose_version = '1.0.5'
         accompanist_version = '0.22.0-rc'
     }
