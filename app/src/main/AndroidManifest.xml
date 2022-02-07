@@ -9,17 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyLiving">
+
         <activity
-            android:name=".MainActivity"
+            android:name=".presentation.entry.EntryActivity"
             android:exported="true"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.MyLiving">
+            android:theme="@style/Theme.MyLiving.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".presentation.main.MainActivity" />
     </application>
 
 </manifest>
