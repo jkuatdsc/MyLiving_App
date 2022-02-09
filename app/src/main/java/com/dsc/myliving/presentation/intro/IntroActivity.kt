@@ -39,7 +39,7 @@ class IntroActivity : ComponentActivity() {
                 Surface {
                     Column(modifier = Modifier.fillMaxSize(), verticalArrangement = SpaceBetween) {
                         Spacer(modifier = Modifier)
-                        Slide()
+                        Slides()
                         Indicators()
                     }
                 }
@@ -48,10 +48,16 @@ class IntroActivity : ComponentActivity() {
     }
 
     @Composable
-    fun Slide() {
+    fun Slides() {
         val current by viewmodel.current
 
-        Column(modifier = Modifier.fillMaxWidth().onSwipe(left = {viewmodel.prev()}, right = { viewmodel.next()}), horizontalAlignment = CenterHorizontally) {
+        Column(
+            modifier = Modifier.fillMaxWidth().onSwipe(
+                left = { viewmodel.prev() },
+                right = { viewmodel.next() }
+            ),
+            horizontalAlignment = CenterHorizontally
+        ) {
             Image(
                 contentDescription = "",
                 modifier = Modifier.size(100.dp),
