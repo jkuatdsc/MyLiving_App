@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
+import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -24,6 +25,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.dsc.myliving.presentation.theme.MyLivingTheme
+import com.dsc.myliving.utils.onSwipe
 import com.dsc.myliving.utils.unRippled
 
 class IntroActivity : ComponentActivity() {
@@ -35,10 +37,7 @@ class IntroActivity : ComponentActivity() {
         setContent {
             MyLivingTheme {
                 Surface {
-                    Column(
-                        modifier = Modifier.fillMaxSize(),
-                        verticalArrangement = SpaceBetween
-                    ) {
+                    Column(modifier = Modifier.fillMaxSize(), verticalArrangement = SpaceBetween) {
                         Spacer(modifier = Modifier)
                         Slide()
                         Indicators()
@@ -51,7 +50,8 @@ class IntroActivity : ComponentActivity() {
     @Composable
     fun Slide() {
         val current by viewmodel.current
-        Column(modifier = Modifier.fillMaxWidth(), horizontalAlignment = CenterHorizontally) {
+
+        Column(modifier = Modifier.fillMaxWidth().onSwipe(left = {viewmodel.prev()}, right = { viewmodel.next()}), horizontalAlignment = CenterHorizontally) {
             Image(
                 contentDescription = "",
                 modifier = Modifier.size(100.dp),
@@ -75,15 +75,16 @@ class IntroActivity : ComponentActivity() {
                 text = "skip",
                 style = MaterialTheme.typography.body1,
                 modifier = Modifier.width(50.dp).unRippled {
-                    viewmodel.skip()
-                }
+                        viewmodel.skip()
+                    }
             )
 
             Box(modifier = Modifier.weight(1f)) {
                 Row(modifier = Modifier.width(75.dp).align(Center), horizontalArrangement = SpaceBetween) {
                     (0..3).forEach {
                         val color = if (current == it) colors.onSecondary else colors.primaryVariant
-                        Box(modifier = Modifier.size(10.dp).clip(CircleShape).background(color))
+                        val animate by animateColorAsState(targetValue = color)
+                        Box(modifier = Modifier.size(10.dp).clip(CircleShape).background(animate))
                     }
                 }
             }

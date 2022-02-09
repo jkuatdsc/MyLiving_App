@@ -19,7 +19,7 @@ class IntroViewmodel : ViewModel() {
     val current: State<Int> = _current
 
     fun skip() = _current.also { _current.value = 3 }
-    fun next() = _current.also { _current.value = it.value + 1 }
-    fun prev() = _current.also { _current.value = if(_current.value == 0) 0 else it.value -1 }
+    fun next() = _current.also { _current.value = if (_current.value == 3) 3 else it.value + 1 }
+    fun prev() = _current.also { _current.value = if (_current.value == 0) 0 else it.value - 1 }
 
 }
