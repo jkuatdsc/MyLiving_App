@@ -67,7 +67,7 @@ class IntroActivity : ComponentActivity() {
             Text(
                 textAlign = TextAlign.Center,
                 text = viewmodel.texts[current],
-                modifier = Modifier.width(250.dp),
+                modifier = Modifier.width(275.dp),
             )
         }
     }
