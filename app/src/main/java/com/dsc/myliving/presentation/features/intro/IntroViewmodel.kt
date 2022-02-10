@@ -1,4 +1,4 @@
-package com.dsc.myliving.presentation.intro
+package com.dsc.myliving.presentation.features.intro
 
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
