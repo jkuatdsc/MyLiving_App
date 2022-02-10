@@ -53,8 +53,8 @@ class IntroActivity : ComponentActivity() {
 
         Column(
             modifier = Modifier.fillMaxWidth().onSwipe(
-                left = { viewmodel.prev() },
-                right = { viewmodel.next() }
+                left = { viewmodel.next() },
+                right = { viewmodel.prev() }
             ),
             horizontalAlignment = CenterHorizontally
         ) {
