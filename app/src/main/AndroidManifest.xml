@@ -11,10 +11,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyLiving">
         <activity
-            android:name=".presentation.intro.IntroActivity"
+            android:name="com.dsc.myliving.presentation.features.intro.IntroActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.entry.EntryActivity"
+            android:name="com.dsc.myliving.presentation.features.entry.EntryActivity"
             android:exported="true"
             android:theme="@style/Theme.MyLiving.Splash">
             <intent-filter>
@@ -23,7 +23,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".presentation.main.MainActivity" />
+        <activity android:name="com.dsc.myliving.presentation.features.main.MainActivity" />
     </application>
 
 </manifest>

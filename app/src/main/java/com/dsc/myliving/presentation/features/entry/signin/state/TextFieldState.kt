@@ -1,4 +1,4 @@
-package com.dsc.myliving.presentation.entry.signin.state
+package com.dsc.myliving.presentation.features.entry.signin.state
 
 import androidx.compose.runtime.*
 

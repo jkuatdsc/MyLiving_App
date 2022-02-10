@@ -1,4 +1,4 @@
-package com.dsc.myliving.presentation.main
+package com.dsc.myliving.presentation.features.main
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
