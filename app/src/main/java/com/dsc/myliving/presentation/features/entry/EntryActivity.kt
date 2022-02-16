@@ -13,7 +13,8 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class EntryActivity : ComponentActivity() {
 
-    @Inject lateinit var preferences: Preferences
+    @Inject
+    lateinit var preferences: Preferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,12 +22,11 @@ class EntryActivity : ComponentActivity() {
 
         val token = preferences.getToken()
         val activity = when {
-            token != null -> IntroActivity::class.java
-            else -> MainActivity::class.java
+            token != null -> MainActivity::class.java
+            else -> IntroActivity::class.java
         }
         val intent = Intent(this, activity)
         startActivity(intent)
         finish()
-
     }
 }

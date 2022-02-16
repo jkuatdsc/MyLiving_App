@@ -1,5 +1,6 @@
 package com.dsc.myliving.presentation.features.intro
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -24,6 +25,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.dsc.myliving.presentation.features.signin.SignInActivity
 import com.dsc.myliving.presentation.theme.MyLivingTheme
 import com.dsc.myliving.utils.onSwipe
 import com.dsc.myliving.utils.unRippled
@@ -52,10 +54,12 @@ class IntroActivity : ComponentActivity() {
         val current by viewmodel.current
 
         Column(
-            modifier = Modifier.fillMaxWidth().onSwipe(
-                left = { viewmodel.next() },
-                right = { viewmodel.prev() }
-            ),
+            modifier = Modifier
+                .fillMaxWidth()
+                .onSwipe(
+                    left = { viewmodel.next() },
+                    right = { viewmodel.prev() }
+                ),
             horizontalAlignment = CenterHorizontally
         ) {
             Image(
@@ -80,17 +84,29 @@ class IntroActivity : ComponentActivity() {
             Text(
                 text = "skip",
                 style = MaterialTheme.typography.body1,
-                modifier = Modifier.width(50.dp).unRippled {
+                modifier = Modifier
+                    .width(50.dp)
+                    .unRippled {
                         viewmodel.skip()
                     }
             )
 
             Box(modifier = Modifier.weight(1f)) {
-                Row(modifier = Modifier.width(75.dp).align(Center), horizontalArrangement = SpaceBetween) {
+                Row(
+                    modifier = Modifier
+                        .width(75.dp)
+                        .align(Center),
+                    horizontalArrangement = SpaceBetween
+                ) {
                     (0..3).forEach {
                         val color = if (current == it) colors.onSecondary else colors.primaryVariant
                         val animate by animateColorAsState(targetValue = color)
-                        Box(modifier = Modifier.size(10.dp).clip(CircleShape).background(animate))
+                        Box(
+                            modifier = Modifier
+                                .size(10.dp)
+                                .clip(CircleShape)
+                                .background(animate)
+                        )
                     }
                 }
             }
@@ -98,14 +114,16 @@ class IntroActivity : ComponentActivity() {
             Text(
                 style = MaterialTheme.typography.body1,
                 text = if (current != 3) "next" else "start",
-                modifier = Modifier.width(50.dp).unRippled {
-                    if (current != 3) viewmodel.next() else start()
-                }
+                modifier = Modifier
+                    .width(50.dp)
+                    .unRippled {
+                        if (current != 3) viewmodel.next() else start()
+                    }
             )
         }
     }
 
     private fun start() {
-        // TODO: move to login page
+        startActivity(Intent(this, SignInActivity::class.java))
     }
 }
