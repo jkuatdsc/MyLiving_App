@@ -14,6 +14,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import com.dsc.myliving.presentation.components.form.Validators
 import com.dsc.myliving.presentation.theme.shapes
 
 class EntryTextInput(private vararg val validators: Validators) {
@@ -57,12 +58,12 @@ class EntryTextInput(private vararg val validators: Validators) {
                     showError = !email()
                     email()
                 }
-                is Validators.Min -> {
+                is Validators.MinChars -> {
                     errorMessage = validator.message
                     showError = !min(validator.limit)
                     min(validator.limit)
                 }
-                is Validators.Max -> {
+                is Validators.MaxChars -> {
                     errorMessage = validator.message
                     showError = !max(validator.limit)
                     max(validator.limit)

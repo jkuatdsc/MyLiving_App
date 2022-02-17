@@ -5,12 +5,13 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.detectDragGestures
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.offset
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.TextFieldColors
+import androidx.compose.material.TextFieldDefaults
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.composed
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.pointer.consumeAllChanges
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.unit.IntOffset
@@ -41,4 +42,15 @@ fun Modifier.onSwipe(left: () -> Unit = {}, right: () -> Unit = {}): Modifier = 
             },
         )
     }
+}
+
+@Composable
+fun MaterialTheme.getTextFieldColors(): TextFieldColors {
+    return TextFieldDefaults.outlinedTextFieldColors(
+        errorBorderColor = colors.error,
+        focusedBorderColor = Color.Transparent,
+        unfocusedBorderColor = Color.Transparent,
+        focusedLabelColor = colors.onPrimary,
+        unfocusedLabelColor = colors.onPrimary,
+    )
 }

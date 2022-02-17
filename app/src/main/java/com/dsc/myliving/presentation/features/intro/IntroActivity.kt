@@ -25,7 +25,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.dsc.myliving.presentation.features.signin.SignInActivity
+import com.dsc.myliving.presentation.features.auth.AuthActivity
 import com.dsc.myliving.presentation.theme.MyLivingTheme
 import com.dsc.myliving.utils.onSwipe
 import com.dsc.myliving.utils.unRippled
@@ -124,6 +124,6 @@ class IntroActivity : ComponentActivity() {
     }
 
     private fun start() {
-        startActivity(Intent(this, SignInActivity::class.java))
+        startActivity(Intent(this, AuthActivity::class.java))
     }
 }

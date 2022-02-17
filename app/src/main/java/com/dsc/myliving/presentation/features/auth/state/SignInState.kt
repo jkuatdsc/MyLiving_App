@@ -1,4 +1,4 @@
-package com.dsc.myliving.presentation.features.signin.state
+package com.dsc.myliving.presentation.features.auth.state
 
 import com.dsc.myliving.presentation.components.EntryTextInput
 
