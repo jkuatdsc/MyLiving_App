@@ -1,4 +1,4 @@
-package com.dsc.myliving.presentation.components.form
+package com.dsc.myliving.presentation.components
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.text.KeyboardOptions
@@ -16,6 +16,7 @@ import androidx.compose.ui.text.input.KeyboardType.Companion.Ascii
 import androidx.compose.ui.text.input.KeyboardType.Companion.Password
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
+import com.dsc.form_builder.TextFieldState
 import com.dsc.myliving.presentation.theme.shapes
 import com.dsc.myliving.presentation.theme.tinyVPadding
 
@@ -33,7 +34,7 @@ fun TextInput(state: TextFieldState<*>, modifier: Modifier = Modifier, type: Key
             colors = TextFieldDefaults.outlinedTextFieldColors(textColor = colors.onSecondary),
         )
         if (state.hasError) {
-            Text(state.message, color = colors.error, modifier = modifier.tinyVPadding())
+            Text(state.errorMessage, color = colors.error, modifier = modifier.tinyVPadding())
         }
     }
 }
@@ -65,7 +66,7 @@ fun PasswordInput(state: TextFieldState<*>, modifier: Modifier = Modifier){
             },
         )
         if (state.hasError) {
-            Text(state.message, color = colors.error, modifier = modifier.tinyVPadding())
+            Text(state.errorMessage, color = colors.error, modifier = modifier.tinyVPadding())
         }
     }
 }

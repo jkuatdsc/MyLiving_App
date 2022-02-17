@@ -5,10 +5,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
-import com.dsc.myliving.presentation.components.form.FormState
-import com.dsc.myliving.presentation.components.form.TextFieldState
-import com.dsc.myliving.presentation.components.form.Validators.Email
-import com.dsc.myliving.presentation.components.form.Validators.MinChars
+import com.dsc.form_builder.FormState
+import com.dsc.form_builder.TextFieldState
+import com.dsc.form_builder.Validators
 import java.util.*
 
 class AuthViewmodel : ViewModel() {
@@ -19,12 +18,12 @@ class AuthViewmodel : ViewModel() {
         fields = listOf(
             TextFieldState(
                 name = "email",
-                validators = listOf(Email()),
+                validators = listOf(Validators.Email()),
                 transform = { it.trim().lowercase(Locale.getDefault()) }
             ),
             TextFieldState(
                 name = "password",
-                validators = listOf(MinChars(8, message = "password is too short"))
+                validators = listOf(Validators.MinChars(8, message = "password is too short"))
             )
         )
     )
@@ -32,12 +31,12 @@ class AuthViewmodel : ViewModel() {
         fields = listOf(
             TextFieldState(
                 name = "email",
-                validators = listOf(Email()),
+                validators = listOf(Validators.Email()),
                 transform = { it.trim().lowercase(Locale.getDefault()) }
             ),
             TextFieldState(
                 name = "password",
-                validators = listOf(MinChars(8, message = "password is too short"))
+                validators = listOf(Validators.MinChars(8, message = "password is too short"))
             ),
             TextFieldState(name = "confirm")
         )

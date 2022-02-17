@@ -5,8 +5,6 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.material.Surface
-import com.dsc.myliving.presentation.features.auth.screens.Login
-import com.dsc.myliving.presentation.features.auth.screens.Signup
 import com.dsc.myliving.presentation.theme.MyLivingTheme
 
 class AuthActivity : ComponentActivity() {

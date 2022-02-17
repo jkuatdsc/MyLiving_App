@@ -1,4 +1,4 @@
-package com.dsc.myliving.presentation.features.auth.screens
+package com.dsc.myliving.presentation.features.auth
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -14,9 +14,8 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.dsc.myliving.R
 import com.dsc.myliving.presentation.components.EntryButton
-import com.dsc.myliving.presentation.components.form.PasswordInput
-import com.dsc.myliving.presentation.components.form.TextInput
-import com.dsc.myliving.presentation.features.auth.AuthViewmodel
+import com.dsc.myliving.presentation.components.PasswordInput
+import com.dsc.myliving.presentation.components.TextInput
 
 @Composable
 fun Login() {
