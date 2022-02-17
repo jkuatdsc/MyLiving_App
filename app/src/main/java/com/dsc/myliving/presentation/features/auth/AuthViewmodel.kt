@@ -45,12 +45,22 @@ class AuthViewmodel : ViewModel() {
 
     fun login() {
         if (loginFormState.validate()){
+            // TODO: authenticate the user
             Log.d("Login", "login: we are good to go")
         }
     }
 
     fun signup(){
         if (signupFormState.validate()){
+            val confirmState = signupFormState.getState("confirm")
+            val password = signupFormState.getState("password").text
+
+            if (confirmState.text != password){
+                confirmState.showError("passwords do not match")
+                return
+            }
+
+            // TODO: register user
             Log.d("Signup", "signup: we are good to go")
         }
     }
