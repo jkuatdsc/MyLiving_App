@@ -4,8 +4,12 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import com.dsc.myliving.R.drawable.*
+import com.dsc.myliving.utils.Preferences
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class IntroViewmodel : ViewModel() {
+@HiltViewModel
+class IntroViewmodel @Inject constructor(val preferences: Preferences): ViewModel() {
 
     val images = listOf(feedback, rating, electricity, water)
     val texts = listOf(
@@ -21,5 +25,10 @@ class IntroViewmodel : ViewModel() {
     fun skip() = _current.also { _current.value = 3 }
     fun next() = _current.also { _current.value = if (_current.value == 3) 3 else it.value + 1 }
     fun prev() = _current.also { _current.value = if (_current.value == 0) 0 else it.value - 1 }
+
+
+    fun finishIntro() {
+        preferences.setIntro(true)
+    }
 
 }

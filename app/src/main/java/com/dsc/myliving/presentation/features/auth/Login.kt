@@ -6,6 +6,7 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
@@ -18,9 +19,9 @@ import com.dsc.myliving.presentation.components.form.TextInput
 import com.dsc.myliving.presentation.features.auth.AuthViewmodel
 
 @Composable
-fun Signup() {
+fun Login() {
     val viewmodel: AuthViewmodel = viewModel()
-    val formState = remember { viewmodel.signupFormState }
+    val formState = remember { viewmodel.loginFormState }
 
     Column(
         verticalArrangement = Arrangement.Center,
@@ -36,6 +37,7 @@ fun Signup() {
             state = formState.getState("email"),
         )
 
+
         Spacer(modifier = Modifier.height(12.dp))
         Text("Password")
         PasswordInput(
@@ -43,20 +45,12 @@ fun Signup() {
             state = formState.getState("password"),
         )
 
-        Spacer(modifier = Modifier.height(12.dp))
-        Text("Confirm password")
-        PasswordInput(
-            modifier = Modifier.fillMaxWidth(),
-            state = formState.getState("confirm"),
-        )
-
-
         Spacer(modifier = Modifier.height(36.dp))
         EntryButton(
-            onclick = { viewmodel.signup() },
-            buttonText = R.string.sign_up,
+            onclick = { viewmodel.login() },
+            buttonText = R.string.login,
             buttonIcon = R.drawable.ic_arrow_right,
-            buttonContentDescription = R.string.sign_up
+            buttonContentDescription = R.string.login
         )
 
         Spacer(modifier = Modifier.height(16.dp))
@@ -68,9 +62,12 @@ fun Signup() {
         )
 
         Spacer(modifier = Modifier.height(16.dp))
-        Text(
-            text = stringResource(id = R.string.already_have_account_message),
-            modifier = Modifier.clickable { viewmodel.current = 0 })
+        Box(modifier = Modifier.fillMaxWidth()) {
+            Text(
+                text = stringResource(id = R.string.no_account_message),
+                modifier = Modifier.align(Alignment.Center).clickable { viewmodel.current = 1 },
+            )
+        }
     }
 }
 
@@ -78,6 +75,6 @@ fun Signup() {
 private fun WelcomeText() {
     Column(modifier = Modifier.fillMaxWidth()) {
         Text(text = stringResource(id = R.string.app_name), style = MaterialTheme.typography.h1)
-        Text(text = stringResource(id = R.string.new_account))
+        Text(text = stringResource(id = R.string.login_message))
     }
 }

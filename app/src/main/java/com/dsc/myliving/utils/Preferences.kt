@@ -8,11 +8,16 @@ import javax.inject.Inject
 
 class Preferences @Inject constructor(@ApplicationContext context: Context) {
     private val tokenKey = "ACCESS_TOKEN"
+    private val introKey = "INTRO_SCREEN"
     private val preferences = context.getSharedPreferences("MY_LIVING_PREFS", Context.MODE_PRIVATE)
 
     fun getToken() = preferences.getString(tokenKey, null)
 
-    fun setToken(token: String?) = preferences.set(tokenKey, token)
+    fun getIntro() = preferences.getBoolean(introKey, false)
+
+    fun setToken(token: String) = preferences.set(tokenKey, token)
+
+    fun setIntro(finished: Boolean) = preferences.set(introKey, finished)
 
     operator fun SharedPreferences.set(key: String, value: Any?){
         when (value) {

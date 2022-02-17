@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import com.dsc.myliving.presentation.features.auth.AuthActivity
 import com.dsc.myliving.presentation.features.intro.IntroActivity
 import com.dsc.myliving.presentation.features.main.MainActivity
 import com.dsc.myliving.utils.Preferences
@@ -21,9 +22,12 @@ class EntryActivity : ComponentActivity() {
         installSplashScreen()
 
         val token = preferences.getToken()
+        val intro = preferences.getIntro()
+
         val activity = when {
+            !intro -> IntroActivity::class.java
             token != null -> MainActivity::class.java
-            else -> IntroActivity::class.java
+            else -> AuthActivity::class.java
         }
         val intent = Intent(this, activity)
         startActivity(intent)

@@ -29,7 +29,9 @@ import com.dsc.myliving.presentation.features.auth.AuthActivity
 import com.dsc.myliving.presentation.theme.MyLivingTheme
 import com.dsc.myliving.utils.onSwipe
 import com.dsc.myliving.utils.unRippled
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class IntroActivity : ComponentActivity() {
     private val viewmodel: IntroViewmodel by viewModels()
 
@@ -124,6 +126,8 @@ class IntroActivity : ComponentActivity() {
     }
 
     private fun start() {
+        viewmodel.finishIntro()
         startActivity(Intent(this, AuthActivity::class.java))
+        finish()
     }
 }
