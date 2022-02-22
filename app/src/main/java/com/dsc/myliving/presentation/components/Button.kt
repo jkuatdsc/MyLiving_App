@@ -11,6 +11,7 @@ import androidx.compose.material.MaterialTheme.colors
 import androidx.compose.material.OutlinedButton
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -30,9 +31,8 @@ fun EntryButton(
         border = BorderStroke(width = 2.dp, color = colors.onSecondary)
     ) {
         Row(
-            modifier = Modifier
-                .padding(12.dp)
-                .fillMaxWidth()
+            modifier = Modifier.padding(12.dp).fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically,
         ) {
             Text(text = stringResource(id = buttonText), color = colors.onSecondary)
             Spacer(modifier = Modifier.weight(1f))
