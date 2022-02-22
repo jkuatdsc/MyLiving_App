@@ -48,7 +48,7 @@ fun Login() {
         EntryButton(
             onclick = { viewmodel.login() },
             buttonText = R.string.login,
-            buttonIcon = R.drawable.ic_arrow_right,
+            buttonIcon = R.drawable.ic_right,
             buttonContentDescription = R.string.login
         )
 
@@ -56,7 +56,7 @@ fun Login() {
         EntryButton(
             onclick = { /*TODO*/ },
             buttonText = R.string.google,
-            buttonIcon = R.drawable.google_logo,
+            buttonIcon = R.drawable.ic_google,
             buttonContentDescription = R.string.login
         )
 

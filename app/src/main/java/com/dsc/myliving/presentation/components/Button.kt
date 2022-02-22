@@ -3,10 +3,8 @@ package com.dsc.myliving.presentation.components
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme.colors
@@ -38,7 +36,8 @@ fun EntryButton(
         ) {
             Text(text = stringResource(id = buttonText), color = colors.onSecondary)
             Spacer(modifier = Modifier.weight(1f))
-            Icon(
+            Image(
+                modifier = Modifier.size(20.dp),
                 painter = rememberImagePainter(data = buttonIcon),
                 contentDescription = stringResource(id = buttonContentDescription)
             )
